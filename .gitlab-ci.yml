@@ -16,5 +16,5 @@ test:
   script:
     - node test.js
   only:
-    - main
+    - master
     - merge_requests

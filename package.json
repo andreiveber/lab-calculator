@@ -1,0 +1,12 @@
+{
+  "name": "lab-calculator",
+  "version": "1.0.0",
+  "main": "calculator.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

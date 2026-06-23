@@ -1,6 +1,7 @@
-image: node:20
+image: node:18
 
 stages:
+  - setup
   - test
 
 cache:
@@ -8,13 +9,24 @@ cache:
     - node_modules/
 
 before_script:
-  - node --version
-  - npm --version
+  - npm install
+
+setup:
+  stage: setup
+  script:
+    - echo "=== Установка Node.js ==="
+    - node --version
+    - echo "=== npm version ==="
+    - npm --version
+  tags:
+    - yandex-vm
 
 test:
   stage: test
   script:
+    - echo "=== Запуск тестов ==="
     - node test.js
+  tags:
+    - yandex-vm
   only:
     - master
-    - merge_requests

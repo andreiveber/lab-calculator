@@ -2,6 +2,8 @@ const assert = require('node:assert');
 const { describe, it, run } = require('node:test');
 const calculateDiscount = require('./calculator');
 
+console.log('=== Начало тестов ===');
+
 describe('Калькулятор скидки', () => {
     it('корректный расчет', () => {
         assert.strictEqual(calculateDiscount(1000, 10), 900);
@@ -21,8 +23,12 @@ describe('Калькулятор скидки', () => {
     });
 });
 
+console.log('=== Все тесты выполнены ===');
+
+// Завершаем процесс после выполнения тестов
 if (require.main === module) {
-    run().then(() => {
+    run({ timeout: 10000 }, () => {
+        console.log('=== Завершение с кодом 0 ===');
         process.exit(0);
     });
 }

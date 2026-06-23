@@ -9,11 +9,12 @@ on:
 jobs:
   setup:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
       - name: Вывод версии Node.js
         run: |
           echo "=== Версия Node.js ==="
@@ -23,12 +24,13 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     needs: setup
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
       - name: Установка зависимостей
         run: npm install
       - name: Запуск тестов

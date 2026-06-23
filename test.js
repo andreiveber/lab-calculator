@@ -21,4 +21,8 @@ describe('Калькулятор скидки', () => {
     });
 });
 
-if (require.main === module) run();
+if (require.main === module) {
+    run().then(() => {
+        process.exit(0);
+    });
+}
